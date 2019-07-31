@@ -18,11 +18,11 @@ class PalindromePermutation:
             hash_table[c] = hash_table[c] + 1
 
         # Check all counters should be even and only one could be odd
-        even_count = 0
+        odd_count = 0
         for c in hash_table:
             if hash_table[c] % 2 == 1:
-                even_count += 1
-            if even_count > 1:
+                odd_count += 1
+            if odd_count > 1:
                 return False
 
         # All letters in string have duplicates and we can build a palindrome from it.
