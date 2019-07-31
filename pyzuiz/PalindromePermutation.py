@@ -9,10 +9,11 @@ class PalindromePermutation:
     Hints: #106, #121, #134, #136
     """
 
-    def is_permutation(self, str):
+    @staticmethod
+    def is_permutation(input_string):
         # Count each char in given string
         hash_table = {}
-        for c in str:
+        for c in input_string:
             hash_table.setdefault(c, 0)
             hash_table[c] = hash_table[c] + 1
 
