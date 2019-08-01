@@ -21,5 +21,3 @@ class DeleteMiddleNode:
         next_node = middle.next_node
         middle.next_node = next_node.next_node
         middle.value = next_node.value
-
-
