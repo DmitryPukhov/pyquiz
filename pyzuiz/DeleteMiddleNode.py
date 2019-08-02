@@ -1,4 +1,4 @@
-from pyzuiz.tools.LinkedListNode import LinkedListNode
+from pyzuiz.tools.SingleLinkedNode import SingleLinkedNode
 
 
 class DeleteMiddleNode:
@@ -13,11 +13,11 @@ class DeleteMiddleNode:
     """
 
     @staticmethod
-    def delete_middle(middle: LinkedListNode):
+    def delete_middle(middle: SingleLinkedNode):
         """
         Solution: copy data and next ref from next node to given.
         It does not work for the last node
         """
-        next_node = middle.next_node
-        middle.next_node = next_node.next_node
+        next_node = middle.next_
+        middle.next_ = next_node.next_
         middle.value = next_node.value
