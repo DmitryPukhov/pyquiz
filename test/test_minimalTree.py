@@ -1,7 +1,7 @@
 from unittest import TestCase
 
 from pyzuiz.MinimalTree import MinimalTree
-from pyzuiz.tools import TreeNode
+from pyzuiz.common import TreeNode
 
 
 class TestMinimalTree(TestCase):

@@ -1,4 +1,4 @@
-from pyzuiz.tools.DoubleLinkedNode import DoubleLinkedNode
+from pyzuiz.common.DoubleLinkedNode import DoubleLinkedNode
 
 
 class StackMin:

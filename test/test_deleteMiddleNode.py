@@ -1,7 +1,7 @@
 from unittest import TestCase
 
 from pyzuiz.DeleteMiddleNode import DeleteMiddleNode
-from pyzuiz.tools.SingleLinkedNode import SingleLinkedNode
+from pyzuiz.common.SingleLinkedNode import SingleLinkedNode
 
 
 class TestDeleteMiddleNode(TestCase):

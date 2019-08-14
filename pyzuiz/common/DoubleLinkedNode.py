@@ -1,4 +1,4 @@
-from pyzuiz.tools.SingleLinkedNode import SingleLinkedNode
+from pyzuiz.common.SingleLinkedNode import SingleLinkedNode
 
 
 class DoubleLinkedNode(SingleLinkedNode):
