@@ -1,6 +1,6 @@
 from unittest import TestCase
 
-from pyzuiz.DeleteMiddleNode import DeleteMiddleNode
+from pyzuiz.linkedlists.DeleteMiddleNode import DeleteMiddleNode
 from pyzuiz.common.SingleLinkedNode import SingleLinkedNode
 
 

@@ -1,6 +1,6 @@
 from unittest import TestCase
 
-from pyzuiz.RobotInAGrid import RobotInAGrid
+from pyzuiz.dynamic.RobotInAGrid import RobotInAGrid
 
 
 class TestRobotInAGrid(TestCase):

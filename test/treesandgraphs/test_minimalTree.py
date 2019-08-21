@@ -1,6 +1,6 @@
 from unittest import TestCase
 
-from pyzuiz.MinimalTree import MinimalTree
+from pyzuiz.treesandgraphs.MinimalTree import MinimalTree
 from pyzuiz.common import TreeNode
 
 
