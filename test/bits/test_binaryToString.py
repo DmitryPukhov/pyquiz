@@ -1,6 +1,6 @@
 from unittest import TestCase
 
-from pyzuiz.BinaryToString import BinaryToString
+from pyzuiz.bits.BinaryToString import BinaryToString
 
 
 class TestBinaryToString(TestCase):
