@@ -18,6 +18,6 @@ class DeleteMiddleNode:
         Solution: copy data and next ref from next node to given.
         It does not work for the last node
         """
-        next_node = middle.next_
-        middle.next_ = next_node.next_
+        next_node = middle.next
+        middle.next = next_node.next
         middle.value = next_node.value

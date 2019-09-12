@@ -5,4 +5,4 @@ class SingleLinkedNode:
 
     def __init__(self, value, next_):
         self.value = value
-        self.next_: SingleLinkedNode = next_
+        self.next: SingleLinkedNode = next_
