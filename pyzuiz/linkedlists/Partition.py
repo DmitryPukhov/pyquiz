@@ -25,6 +25,8 @@ class Partition:
         tail2: SingleLinkedNode = None
         cur_node: SingleLinkedNode = head
         while cur_node is not None:
+            next_node = cur_node.next
+            cur_node.next = None
             if cur_node.value >= x:
                 # Above x, add to part 2 tail
                 if tail2 is not None:
@@ -45,10 +47,11 @@ class Partition:
                     head1 = cur_node
                     tail1 = cur_node
 
-            cur_node = cur_node.next
+            cur_node = next_node
 
         # Concat part1 and part 2
-        tail1.next = head2
+        if tail1 is not None:
+            tail1.next = head2
 
         if head1 is not None:
             return head1
