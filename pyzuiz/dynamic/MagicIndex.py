@@ -11,17 +11,29 @@ class MagicIndex:
 
     @staticmethod
     def of(arr):
-        magic_index = []
-
+        magic_indexes = []
+        # Current magic index start and end
+        mi_start = None
+        mi_end = None
+        # Go through, looking for magic indexes
         for i in range(0, len(arr)):
             a = arr[i]
             if a == i:
-                # Found magic index
-                magic_index.append(a)
-            elif magic_index:
-                # End of magic index, return it
-                return magic_index
+                if mi_start is None:
+                    # Found start of new magic index
+                    mi_start = a
+                else:
+                    # Update the end of current magic index
+                    mi_end = a
+            elif mi_start is not None:
+                # Next element after magic index. Add magic index to result and reset.
+                magic_indexes.append((mi_start, mi_end))
+                mi_start = mi_end = None
             # No magic index, continue search
 
-        return magic_index
+        if mi_start is not None:
+            if mi_end is None:
+                mi_end = mi_start
+            magic_indexes.append((mi_start, mi_end))
 
+        return magic_indexes
