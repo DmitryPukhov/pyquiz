@@ -18,12 +18,12 @@ class MagicIndex:
         O(log(n)) implementation
         :return: (start, end) of magic index
          """
-        # Find an element inside magic index
-        inside_index = self._any_inside(arr)
-        if inside_index is None:
+
+        # Try to find low bound of magic index
+        start = self._start(arr, len(arr)-1)
+        if arr[start] != start:
             return None
-        start = self._start(arr, inside_index)
-        end = self._end(arr, inside_index)
+        end = self._end(arr, 0)
         return start, end
 
     @staticmethod
@@ -67,29 +67,6 @@ class MagicIndex:
                 # We are after magic index, move left
                 end = start + math.floor((end - start) / 2)
         return end
-
-    @staticmethod
-    def _any_inside(arr):
-        """
-        Find any index inside magic index
-        """
-        # Using binary division, find start of magic index
-        start = 0
-        end = len(arr)
-        # Find the element inside magic index
-        while start < end:
-            pivot = int(start + (end - start) / 2)
-            if arr[pivot] > pivot:
-                # We are on the right of magic index, move left
-                end = pivot
-            elif arr[pivot] < pivot:
-                # We are on the left of magic index, move right
-                start = pivot
-            else:
-                # We are inside magic index
-                return pivot
-        # Not found
-        return None
 
     @staticmethod
     def multi(arr: []):
