@@ -30,8 +30,25 @@ class SingleLinkedNode:
         # Build string with values of linked list
         values = []
         node = self
-        while node is not None:
+        max_items = 10
+        items = 0
+        while node is not None and items < max_items:
+            items += 1
             values.append(str(node.value))
             node = node.next
 
+        if items >= max_items:
+            values.append('...')
+
         return ','.join(values)
+
+    def __str__(self):
+        return self.str_with_tail()
+
+    def __len__(self):
+        length = 1
+        node = self
+        while node.next is not None:
+            length += 1
+            node = node.next
+        return length

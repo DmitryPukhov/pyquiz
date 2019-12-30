@@ -19,8 +19,92 @@ class SumLists:
     Hints: #7, #30, #71, #95, #109
     """
 
+    def sum(self, head1: SingleLinkedNode, head2: SingleLinkedNode):
+        """
+        Sum of two numbers, represented by linked lists in direct order
+        Idea: alight the lists, go from left to right, store sum from 0 to 18 without carry, sum list is reversed
+        Then go through sum list from right to left, calculating sum from 0 to 9 using carry, reversing the list
+        As a result we have sum list from left to right
+        """
+        head1, head2 = self._align(head1, head2)
+        node1, node2 = head1, head2
+        head_res = node_sum = node_sum_left = None
+
+        # Calc reversed sum list, numbers from 0 to 18 without carry
+        while node1 is not None and node2 is not None:
+            node_sum = SingleLinkedNode(node1.value + node2.value, node_sum_left)
+            # First step
+            if head_res is None:
+                head_res = node_sum
+            # Step right
+            node_sum_left = node_sum
+            node1 = node1.next
+            node2 = node2.next
+
+        # Apply carry, reverse sum list
+        carry:int = 0
+        node_sum_left = node_sum.next
+        node_sum.next = None
+        while node_sum_left is not None:
+            # Apply carry
+            carry = (node_sum.value + carry) // 10
+            node_sum.value = (node_sum.value + carry) % 10
+            # Reverse the node
+            new_left = node_sum_left.next
+            node_sum_left.next = node_sum
+            node_sum = node_sum_left
+            node_sum_left = new_left
+
+        # If carry, add new head
+        node_sum.value += carry
+        carry = node_sum.value // 10
+        node_sum.value %= 10
+        if carry > 0:
+            head_res = SingleLinkedNode(1, node_sum)
+
+        return head_res
+
     @staticmethod
-    def sum(head1: SingleLinkedNode, head2: SingleLinkedNode):
+    def _align(head1: SingleLinkedNode, head2: SingleLinkedNode):
+        """
+        Left pad smaller linked lists with zeroes to make sizes equal
+        :return: aligned_head1, aligned_head2
+        """
+        node1 = head1
+        node2 = head2
+        # Go to the tail of list1 or list2
+        while node1.next is not None and node2.next is not None:
+            node1 = node1.next
+            node2 = node2.next
+
+        if node1.next is None and node2.next is None:
+            # If lists are of equal size, no align
+            return head1, head2
+
+        # Go to the tail of longer list and calculate delta size
+        (longer_head, longer_node) = (head1, node1) if node1.next is not None else (head2, node2)
+        pad_head = None
+        pad_node = None
+        while longer_node.next is not None:
+            if pad_head is None:
+                # First
+                pad_head = pad_node = SingleLinkedNode(0, None)
+            else:
+                # Add next node to pad list
+                pad_node.next = SingleLinkedNode(0, None)
+                pad_node = pad_node.next
+            longer_node = longer_node.next
+
+        # Insert paddings  before the head of shorter list
+        pad_node.next = head2 if longer_head == head1 else head1
+
+        return (pad_head, head2) if longer_head == head2 else (head1, pad_head)
+
+    @staticmethod
+    def sum_of_reversed(head1: SingleLinkedNode, head2: SingleLinkedNode):
+        """
+        Sum of two numbers, represented by linked lists in reverse order
+        """
         node1 = head1
         node2 = head2
         # Sum
