@@ -1,6 +1,10 @@
 .idea
 *.iml
 
+# Graphviz technical files
+*.gv
+*.gv.pdf
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
