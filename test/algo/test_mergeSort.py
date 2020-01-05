@@ -16,8 +16,8 @@ class TestMergeSort(TestCase):
         res = MergeSort().sort([1])
         self.assertListEqual([1], res)
 
-    def test_split(self):
-        self.fail()
-
-    def test_merge(self):
-        self.fail()
+    # def test_split(self):
+    #     self.fail()
+    #
+    # def test_merge(self):
+    #     self.fail()
