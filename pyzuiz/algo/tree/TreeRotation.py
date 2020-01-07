@@ -58,6 +58,7 @@ class TreeRotation:
         if is_root:
             g.view()
 
+############# Visualize a sample tree
 
 tr = TreeRotation()
 

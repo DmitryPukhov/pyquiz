@@ -15,9 +15,9 @@ class TestGroupAnagrams(TestCase):
         self.assertIn('1', res)
         self.assertIn('2', res)
         self.assertIn('3', res)
-        self.assertEquals(3, len(res))
+        self.assertEqual(3, len(res))
 
     def test_group_anagrams__multianagrams(self):
         res = GroupAnagrams().group_anagrams(['12', '12', '21'])
-        self.assertEquals(2, res.count('12'))
-        self.assertEquals(1, res.count('21'))
+        self.assertEqual(2, res.count('12'))
+        self.assertEqual(1, res.count('21'))
