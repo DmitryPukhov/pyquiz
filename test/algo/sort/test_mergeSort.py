@@ -1,6 +1,6 @@
 from unittest import TestCase
 
-from pyzuiz.algo.MergeSort import MergeSort
+from pyzuiz.algo.sort.MergeSort import MergeSort
 
 
 class TestMergeSort(TestCase):

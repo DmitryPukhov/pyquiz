@@ -1,5 +1,5 @@
 from pyzuiz.common.SingleLinkedNode import SingleLinkedNode
-from pyzuiz.common.TreeNode import BinaryTreeNode
+from pyzuiz.common.BinaryTreeNode import BinaryTreeNode
 
 
 class ListOfDepth:
