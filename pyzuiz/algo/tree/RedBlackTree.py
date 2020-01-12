@@ -79,7 +79,7 @@ class RedBlackTree:
             node.color = RedBlackBinaryTreeNode.Color.BLACK
             return
 
-        if node == self.root or node.parent.color == RedBlackBinaryTreeNode.Color.BLACK or node.parent.parent is None:
+        if node == self.root or node.parent.color == RedBlackBinaryTreeNode.Color.BLACK or node is None or node.parent.parent is None:
             # Our new node is red, parent is black - nothing to rebalance
             return
 
@@ -92,6 +92,7 @@ class RedBlackTree:
             # If uncle is red (grand parent and nephews must be black)
             node.parent.color = uncle.color = RedBlackBinaryTreeNode.Color.BLACK
             node.parent.parent.color = RedBlackBinaryTreeNode.Color.RED
+            self._rebalance(node.parent.parent)
         # If uncle is black, for cases
         elif node.parent.left == node and node.parent.parent.left == node.parent:
             # left left case
