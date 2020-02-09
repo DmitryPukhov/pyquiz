@@ -3,7 +3,7 @@ class IsSubsequence:
         pt1 = 0
         for ss in s:
             found = False
-            for pt in range(pt1,len(t)):
+            for pt in range(pt1, len(t)):
                 if t[pt] == ss:
                     # Found
                     found = True
