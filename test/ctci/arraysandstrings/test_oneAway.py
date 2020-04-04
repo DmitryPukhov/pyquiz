@@ -1,6 +1,6 @@
 from unittest import TestCase
 
-from pyzuiz.ctci.arraysandstrings import OneAway
+from pyzuiz.ctci.arraysandstrings.OneAway import OneAway
 
 
 class TestOneAway(TestCase):

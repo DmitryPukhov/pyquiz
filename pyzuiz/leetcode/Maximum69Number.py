@@ -31,31 +31,27 @@ class Maxumum69Number:
     """
 
 
-def maximum_69_number(self, num: int) -> int:
-    i = 1
-    d = num
-    maxi6 = 0
-    while d != 0:
-        # Get digi
-        d = self.digit_of(num, i)
-        if d == 6:
-            maxi6 = i
-        i += 1
-    changed = self.with_digit(num, 9, maxi6)
-    return changed
+    def maximum_69_number(self, num: int) -> int:
+        i = 1
+        d = num
+        maxi6 = 0
+        while d != 0:
+            # Get digi
+            d = self.digit_of(num, i)
+            if d == 6:
+                maxi6 = i
+            i += 1
+        changed = self.with_digit(num, 9, maxi6)
+        return changed
 
+    def digit_of(self, num, i):
+        return (num % (10 ** i)) // (10 ** (i - 1))
 
-@staticmethod
-def digit_of(num, i):
-    return (num % (10 ** i)) // (10 ** (i - 1))
+    def with_digit(self, n, d, i):
+        if i == 0:
+            return n
 
-
-@staticmethod
-def with_digit(n, d, i):
-    if i == 0:
-        return n
-
-    n1 = n // (10 ** i) * (10 ** i)
-    n2 = d * (10 ** (i - 1))
-    n3 = n % 10 ** (i - 1)
-    return n1 + n2 + n3
+        n1 = n // (10 ** i) * (10 ** i)
+        n2 = d * (10 ** (i - 1))
+        n3 = n % 10 ** (i - 1)
+        return n1 + n2 + n3

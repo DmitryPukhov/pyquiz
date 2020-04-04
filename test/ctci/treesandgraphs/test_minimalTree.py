@@ -1,7 +1,7 @@
 from unittest import TestCase
 
-from pyzuiz.ctci.treesandgraphs import MinimalTree
-from pyzuiz.common import BinaryTreeNode
+from pyzuiz.ctci.treesandgraphs.MinimalTree import MinimalTree
+from pyzuiz.common.BinaryTreeNode import BinaryTreeNode
 
 
 class TestMinimalTree(TestCase):

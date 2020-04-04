@@ -1,6 +1,6 @@
 from unittest import TestCase
 
-from pyzuiz.ctci.stacksqueues import StackMin
+from pyzuiz.ctci.stacksqueues.StackMin import StackMin
 
 
 class TestStackMin(TestCase):

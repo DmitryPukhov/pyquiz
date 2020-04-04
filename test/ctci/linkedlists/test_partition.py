@@ -1,7 +1,7 @@
 from unittest import TestCase
 
 from pyzuiz.common.SingleLinkedNode import SingleLinkedNode
-from pyzuiz.ctci.linkedlists import Partition
+from pyzuiz.ctci.linkedlists.Partition import Partition
 
 
 class TestPartition(TestCase):

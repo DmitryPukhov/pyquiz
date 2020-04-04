@@ -1,6 +1,6 @@
 from unittest import TestCase
 
-from pyzuiz.ctci.bits import FlipBitToWin
+from pyzuiz.ctci.bits.FlipBitToWin import FlipBitToWin
 
 
 class TestFlipBitToWin(TestCase):

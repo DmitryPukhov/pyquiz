@@ -1,7 +1,7 @@
 from unittest import TestCase
 
 from pyzuiz.common.SingleLinkedNode import SingleLinkedNode
-from pyzuiz.ctci.linkedlists import SumLists
+from pyzuiz.ctci.linkedlists.SumLists import SumLists
 
 
 class TestSumLists(TestCase):
