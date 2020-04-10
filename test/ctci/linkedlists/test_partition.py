@@ -1,7 +1,7 @@
 from unittest import TestCase
 
-from pyzuiz.common.SingleLinkedNode import SingleLinkedNode
-from pyzuiz.ctci.linkedlists.Partition import Partition
+from pyquiz.common.ListNode import ListNode
+from pyquiz.ctci.linkedlists.Partition import Partition
 
 
 class TestPartition(TestCase):
@@ -38,11 +38,11 @@ class TestPartition(TestCase):
         # Are we on the left or on the right partition
         is_left = True
         while node is not None:
-            if node.value >= x:
+            if node.val >= x:
                 # We came from left to right partition
                 # All next cycles should be on the right
                 is_left = False
-            elif not is_left and node.value < x:
+            elif not is_left and node.val < x:
                 # Not partitioned, if we found a value < x on the right
                 return False
             node = node.next
@@ -51,7 +51,7 @@ class TestPartition(TestCase):
         return True
 
     @staticmethod
-    def as_array(node: SingleLinkedNode):
+    def as_array(node: ListNode):
         """
         Converts linked list to array to use in test assertions
         :param node: linked list head node
@@ -59,7 +59,7 @@ class TestPartition(TestCase):
         """
         arr = []
         while node is not None:
-            arr.append(node.value)
+            arr.append(node.val)
             node = node.next
         return arr
 
@@ -75,7 +75,7 @@ class TestPartition(TestCase):
         head = None
         last_node = None
         for value in arr:
-            node = SingleLinkedNode(value, None)
+            node = ListNode(value, None)
             if head is None:
                 # First node
                 head = node

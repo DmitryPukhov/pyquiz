@@ -1,7 +1,7 @@
 from unittest import TestCase
 
-from pyzuiz.algo.tree.RedBlackTree import RedBlackTree
-from pyzuiz.common.RedBlackBinaryTreeNode import RedBlackBinaryTreeNode
+from pyquiz.algo.tree.RedBlackTree import RedBlackTree
+from pyquiz.common.RedBlackBinaryTreeNode import RedBlackBinaryTreeNode
 
 
 class TestRedBlackTree(TestCase):
@@ -12,9 +12,9 @@ class TestRedBlackTree(TestCase):
         tree.insert(1)
         tree.insert(5)
 
-        self.assertEqual(3, tree.root.value)
-        self.assertEqual(1, tree.root.left.value)
-        self.assertEqual(5, tree.root.right.value)
+        self.assertEqual(3, tree.root.val)
+        self.assertEqual(1, tree.root.left.val)
+        self.assertEqual(5, tree.root.right.val)
 
     def test_insert__left(self):
         # Initial tree and the item to insert (+2)
@@ -34,7 +34,7 @@ class TestRedBlackTree(TestCase):
         inserted_node = tree.insert(2)
 
         self.assertEqual(node1.right, inserted_node)
-        self.assertEqual(2, inserted_node.value)
+        self.assertEqual(2, inserted_node.val)
 
     def test_insert__right(self):
         # Initial tree and the item to insert (+4)
@@ -54,4 +54,4 @@ class TestRedBlackTree(TestCase):
         inserted_node = tree.insert(4)
 
         self.assertEqual(node5.left, inserted_node)
-        self.assertEqual(4, inserted_node.value)
+        self.assertEqual(4, inserted_node.val)

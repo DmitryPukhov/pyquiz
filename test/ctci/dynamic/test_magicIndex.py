@@ -1,6 +1,6 @@
 from unittest import TestCase
 
-from pyzuiz.ctci.dynamic.MagicIndex import MagicIndex
+from pyquiz.ctci.dynamic.MagicIndex import MagicIndex
 
 
 class TestMagicIndex(TestCase):

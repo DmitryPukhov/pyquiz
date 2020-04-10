@@ -1,6 +1,6 @@
 from unittest import TestCase
 
-from pyzuiz.leetcode.IsSubsequence import IsSubsequence
+from pyquiz.leetcode.IsSubsequence import IsSubsequence
 
 
 class TestIsSubsequence(TestCase):

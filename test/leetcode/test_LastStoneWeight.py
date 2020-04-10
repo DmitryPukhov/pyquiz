@@ -1,5 +1,5 @@
 from unittest import TestCase
-from pyzuiz.leetcode.LastStoneWeight import LastStoneWeight
+from pyquiz.leetcode.LastStoneWeight import LastStoneWeight
 
 
 class TestLastStoneWeight(TestCase):

@@ -1,4 +1,4 @@
-from pyzuiz.common.SingleLinkedNode import SingleLinkedNode
+from pyquiz.common.ListNode import ListNode
 
 
 class SumLists:
@@ -19,7 +19,7 @@ class SumLists:
     Hints: #7, #30, #71, #95, #109
     """
 
-    def sum(self, head1: SingleLinkedNode, head2: SingleLinkedNode):
+    def sum(self, head1: ListNode, head2: ListNode):
         """
         Sum of two numbers, represented by linked lists in direct order
         Idea: alight the lists, go from left to right, store sum from 0 to 18 without carry, sum list is reversed
@@ -32,7 +32,7 @@ class SumLists:
 
         # Calc reversed sum list, numbers from 0 to 18 without carry
         while node1 is not None and node2 is not None:
-            node_sum = SingleLinkedNode(node1.value + node2.value, node_sum_left)
+            node_sum = ListNode(node1.val + node2.val, node_sum_left)
             # First step
             if head_res is None:
                 head_res = node_sum
@@ -47,8 +47,8 @@ class SumLists:
         node_sum.next = None
         while node_sum_left is not None:
             # Apply carry
-            carry = (node_sum.value + carry) // 10
-            node_sum.value = (node_sum.value + carry) % 10
+            carry = (node_sum.val + carry) // 10
+            node_sum.val = (node_sum.val + carry) % 10
             # Reverse the node
             new_left = node_sum_left.next
             node_sum_left.next = node_sum
@@ -56,16 +56,16 @@ class SumLists:
             node_sum_left = new_left
 
         # If carry, add new head
-        node_sum.value += carry
-        carry = node_sum.value // 10
-        node_sum.value %= 10
+        node_sum.val += carry
+        carry = node_sum.val // 10
+        node_sum.val %= 10
         if carry > 0:
-            head_res = SingleLinkedNode(1, node_sum)
+            head_res = ListNode(1, node_sum)
 
         return head_res
 
     @staticmethod
-    def _align(head1: SingleLinkedNode, head2: SingleLinkedNode):
+    def _align(head1: ListNode, head2: ListNode):
         """
         Left pad smaller linked lists with zeroes to make sizes equal
         :return: aligned_head1, aligned_head2
@@ -88,10 +88,10 @@ class SumLists:
         while longer_node.next is not None:
             if pad_head is None:
                 # First
-                pad_head = pad_node = SingleLinkedNode(0, None)
+                pad_head = pad_node = ListNode(0, None)
             else:
                 # Add next node to pad list
-                pad_node.next = SingleLinkedNode(0, None)
+                pad_node.next = ListNode(0, None)
                 pad_node = pad_node.next
             longer_node = longer_node.next
 
@@ -101,7 +101,7 @@ class SumLists:
         return (pad_head, head2) if longer_head == head2 else (head1, pad_head)
 
     @staticmethod
-    def sum_of_reversed(head1: SingleLinkedNode, head2: SingleLinkedNode):
+    def sum_of_reversed(head1: ListNode, head2: ListNode):
         """
         Sum of two numbers, represented by linked lists in reverse order
         """
@@ -114,8 +114,8 @@ class SumLists:
 
         while node1 is not None \
                 or node2 is not None:
-            val1 = node1.value if node1 is not None else 0
-            val2 = node2.value if node2 is not None else 0
+            val1 = node1.val if node1 is not None else 0
+            val2 = node2.val if node2 is not None else 0
 
             s = val1 + val2 + carry
             # Calc carry
@@ -127,17 +127,17 @@ class SumLists:
 
             # Calc sum and add to a new node
             if prev_node_res is not None:
-                newnode3 = SingleLinkedNode(s, None)
+                newnode3 = ListNode(s, None)
                 prev_node_res.next = newnode3
                 prev_node_res = newnode3
             else:
                 # Initial step
-                prev_node_res = head_res = SingleLinkedNode(s, None)
+                prev_node_res = head_res = ListNode(s, None)
             node1 = node1.next if node1 is not None else None
             node2 = node2.next if node2 is not None else None
 
         # Process remained carry if needed
         if carry > 0:
-            prev_node_res.next = SingleLinkedNode(carry, None)
+            prev_node_res.next = ListNode(carry, None)
 
         return head_res

@@ -1,6 +1,6 @@
 from unittest import TestCase
 
-from pyzuiz.leetcode.Maximum69Number import Maxumum69Number
+from pyquiz.leetcode.Maximum69Number import Maxumum69Number
 
 
 class TestMaxumum69Number(TestCase):

@@ -1,4 +1,4 @@
-from pyzuiz.common.DoubleLinkedNode import DoubleLinkedNode
+from pyquiz.common.DoubleLinkedNode import DoubleLinkedNode
 
 
 class StackMin:
@@ -28,7 +28,7 @@ class StackMin:
             self._tail_val = self._tail_val.next_
 
             # Push new minimum to min stack
-            new_min = min(self._tail_min.value, value)
+            new_min = min(self._tail_min.val, value)
             self._tail_min.next_ = DoubleLinkedNode(new_min, self._tail_min, None)
             self._tail_min = self._tail_min.next_
 
@@ -52,11 +52,11 @@ class StackMin:
             self._tail_val = None
             self._tail_min = None
 
-        return node_val.value
+        return node_val.val
 
     def min(self):
         """
         Return minimum value, no modification of the stack.
         :return: minimum of the stack according to quiz requirement
         """
-        return self._tail_min.value if self._tail_min is not None else None
+        return self._tail_min.val if self._tail_min is not None else None

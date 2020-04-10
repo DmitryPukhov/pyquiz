@@ -1,6 +1,6 @@
 from unittest import TestCase
 
-from pyzuiz.algo.tree.BinaryHeap import BinaryHeap
+from pyquiz.algo.tree.BinaryHeap import BinaryHeap
 
 
 #class TestBinaryHeap(TestCase):

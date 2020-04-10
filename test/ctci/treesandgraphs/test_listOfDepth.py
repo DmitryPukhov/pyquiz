@@ -1,7 +1,7 @@
 from unittest import TestCase
 
-from pyzuiz.common.BinaryTreeNode import BinaryTreeNode
-from pyzuiz.ctci.treesandgraphs.ListOfDepth import ListOfDepth
+from pyquiz.common.BinaryTreeNode import BinaryTreeNode
+from pyquiz.ctci.treesandgraphs.ListOfDepth import ListOfDepth
 
 
 class TestListOfDepth(TestCase):
@@ -42,7 +42,7 @@ class TestListOfDepth(TestCase):
             node = head
             arr = []
             while node is not None:
-                arr.append(node.value)
+                arr.append(node.val)
                 node = node.next
             lst.append(arr)
         return lst

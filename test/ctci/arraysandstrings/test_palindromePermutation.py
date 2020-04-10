@@ -1,5 +1,5 @@
 from unittest import TestCase
-from pyzuiz.ctci.arraysandstrings.PalindromePermutation import PalindromePermutation
+from pyquiz.ctci.arraysandstrings.PalindromePermutation import PalindromePermutation
 
 
 class TestPalindromePermutation(TestCase):

@@ -1,6 +1,6 @@
 from unittest import TestCase
 
-from pyzuiz.ctci.arraysandstrings.StringCompression import StringCompression
+from pyquiz.ctci.arraysandstrings.StringCompression import StringCompression
 
 
 class TestStringCompression(TestCase):

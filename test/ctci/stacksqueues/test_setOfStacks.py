@@ -1,6 +1,6 @@
 from unittest import TestCase
 
-from pyzuiz.ctci.stacksqueues.SetOfStacks import SetOfStacks
+from pyquiz.ctci.stacksqueues.SetOfStacks import SetOfStacks
 
 
 class TestSetOfStacks(TestCase):

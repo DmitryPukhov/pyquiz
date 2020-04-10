@@ -1,11 +1,11 @@
-class SingleLinkedNode:
+class ListNode:
     """
     Single linked list node
     """
 
-    def __init__(self, value, next_):
-        self.value = value
-        self.next: SingleLinkedNode = next_
+    def __init__(self, value, next_=None):
+        self.val = value
+        self.next: ListNode = next_
 
     @staticmethod
     def of(values: []):
@@ -15,7 +15,7 @@ class SingleLinkedNode:
         head = None
         tail = None
         for v in values:
-            node = SingleLinkedNode(v, None)
+            node = ListNode(v, None)
             if tail is not None:
                 tail.next = node
                 tail = tail.next
@@ -34,7 +34,7 @@ class SingleLinkedNode:
         items = 0
         while node is not None and items < max_items:
             items += 1
-            values.append(str(node.value))
+            values.append(str(node.val))
             node = node.next
 
         if items >= max_items:

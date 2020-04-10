@@ -1,6 +1,6 @@
 from unittest import TestCase
 
-from pyzuiz.leetcode.RomanToInteger import RomanToInteger
+from pyquiz.leetcode.RomanToInteger import RomanToInteger
 
 
 class TestRomanToInteger(TestCase):

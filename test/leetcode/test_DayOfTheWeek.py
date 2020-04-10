@@ -1,6 +1,6 @@
 from unittest import TestCase
 
-from pyzuiz.leetcode.DayOfTheWeek import DayOfTheWeek
+from pyquiz.leetcode.DayOfTheWeek import DayOfTheWeek
 
 
 class TestDayOfTheWeek(TestCase):

@@ -1,6 +1,6 @@
 from unittest import TestCase
 
-from pyzuiz.ctci.sortsearch.SearchInRotatedArray import SearchInRotatedArray
+from pyquiz.ctci.sortsearch.SearchInRotatedArray import SearchInRotatedArray
 
 
 class TestSearchInRotatedArray(TestCase):

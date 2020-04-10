@@ -1,7 +1,7 @@
-from pyzuiz.common.SingleLinkedNode import SingleLinkedNode
+from pyquiz.common.ListNode import ListNode
 
 
-class DoubleLinkedNode(SingleLinkedNode):
+class DoubleLinkedNode(ListNode):
     """
     Linked list node with prev and next ref
     """

@@ -1,6 +1,6 @@
 from unittest import TestCase
 
-from pyzuiz.leetcode.MaximumSubArray import MaximumSubArray
+from pyquiz.leetcode.MaximumSubArray import MaximumSubArray
 
 
 class TestSolution(TestCase):

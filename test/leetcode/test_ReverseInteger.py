@@ -1,6 +1,6 @@
 from unittest import TestCase
 
-from pyzuiz.leetcode.ReverseInteger import ReverseInteger
+from pyquiz.leetcode.ReverseInteger import ReverseInteger
 
 
 class TestReverseInteger(TestCase):

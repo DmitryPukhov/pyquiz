@@ -1,6 +1,6 @@
 from unittest import TestCase
 
-from pyzuiz.algo.sort.QuickSort import QuickSort
+from pyquiz.algo.sort.QuickSort import QuickSort
 
 
 class TestQuickSort(TestCase):

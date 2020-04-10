@@ -1,6 +1,6 @@
 from graphviz import Graph
 
-from pyzuiz.common.TreeNode import BinaryTreeNode
+from pyquiz.common.TreeNode import BinaryTreeNode
 
 
 class TreeRotation:
@@ -44,14 +44,14 @@ class TreeRotation:
         """
         is_root = False
         if g is None:
-            g = Graph('G', filename='tree_{}.gv'.format(node.value))
+            g = Graph('G', filename='tree_{}.gv'.format(node.val))
             is_root = True
         # Recursive edges of the children
         if node.left is not None:
-            g.edge(str(node.value), str(node.left.value))
+            g.edge(str(node.val), str(node.left.val))
             self.visualize(node.left, g)
         if node.right is not None:
-            g.edge(str(node.value), str(node.right.value))
+            g.edge(str(node.val), str(node.right.val))
             self.visualize(node.right, g)
 
         # Draw the graph

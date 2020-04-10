@@ -1,4 +1,4 @@
-from pyzuiz.common.SingleLinkedNode import SingleLinkedNode
+from pyquiz.common.ListNode import ListNode
 
 
 class Partition:
@@ -13,21 +13,21 @@ class Partition:
     """
 
     @staticmethod
-    def partition(head: SingleLinkedNode, x):
+    def partition(head: ListNode, x):
         """
         :param head: linked list head
         :param x: value to partition the list around
         :return: head of partitioned linked list
         """
-        head1: SingleLinkedNode = None
-        tail1: SingleLinkedNode = None
-        head2: SingleLinkedNode = None
-        tail2: SingleLinkedNode = None
-        cur_node: SingleLinkedNode = head
+        head1: ListNode = None
+        tail1: ListNode = None
+        head2: ListNode = None
+        tail2: ListNode = None
+        cur_node: ListNode = head
         while cur_node is not None:
             next_node = cur_node.next
             cur_node.next = None
-            if cur_node.value >= x:
+            if cur_node.val >= x:
                 # Above x, add to part 2 tail
                 if tail2 is not None:
                     # Add current node to part2 tail

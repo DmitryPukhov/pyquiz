@@ -1,5 +1,5 @@
-from pyzuiz.common.SingleLinkedNode import SingleLinkedNode
-from pyzuiz.common.BinaryTreeNode import BinaryTreeNode
+from pyquiz.common.ListNode import ListNode
+from pyquiz.common.BinaryTreeNode import BinaryTreeNode
 
 
 class ListOfDepth:
@@ -34,10 +34,10 @@ class ListOfDepth:
 
         if level not in self._heads:
             # First node of this level, create linked list
-            self._heads[level] = self._tails[level] = SingleLinkedNode(node.value, None)
+            self._heads[level] = self._tails[level] = ListNode(node.val, None)
         else:
             # Add this node to the tail of this level
-            self._tails[level].next = SingleLinkedNode(node.value, None)
+            self._tails[level].next = ListNode(node.val, None)
             self._tails[level] = self._tails[level].next
 
         self._traverse(node.left, level + 1)

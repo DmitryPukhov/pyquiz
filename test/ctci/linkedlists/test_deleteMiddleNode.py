@@ -1,11 +1,11 @@
 from unittest import TestCase
 
-from pyzuiz.ctci.linkedlists.DeleteMiddleNode import DeleteMiddleNode
-from pyzuiz.common.SingleLinkedNode import SingleLinkedNode
+from pyquiz.ctci.linkedlists.DeleteMiddleNode import DeleteMiddleNode
+from pyquiz.common.ListNode import ListNode
 
 
 class TestDeleteMiddleNode(TestCase):
     def test_delete_middle_3items(self):
-        root = SingleLinkedNode(0, SingleLinkedNode(1, SingleLinkedNode(2, None)))
+        root = ListNode(0, ListNode(1, ListNode(2, None)))
         DeleteMiddleNode.delete_middle(root.next)
-        assert(root.next.value is 2)
+        assert(root.next.val is 2)

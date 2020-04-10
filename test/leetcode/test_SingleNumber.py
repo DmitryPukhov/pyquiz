@@ -1,6 +1,6 @@
 from unittest import TestCase
 
-from pyzuiz.leetcode.SingleNumber import SingleNumber
+from pyquiz.leetcode.SingleNumber import SingleNumber
 
 
 class TestSingleNumber(TestCase):

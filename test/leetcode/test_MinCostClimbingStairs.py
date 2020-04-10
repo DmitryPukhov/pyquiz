@@ -1,6 +1,6 @@
 from unittest import TestCase
 
-from pyzuiz.leetcode.MinCostClimbingStairs import MinCostClimbingStairs
+from pyquiz.leetcode.MinCostClimbingStairs import MinCostClimbingStairs
 
 
 class TestMinCostClimbingStairs(TestCase):

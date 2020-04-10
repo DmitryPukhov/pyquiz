@@ -1,6 +1,6 @@
 from typing import Optional
 
-from pyzuiz.common.RedBlackBinaryTreeNode import RedBlackBinaryTreeNode
+from pyquiz.common.RedBlackBinaryTreeNode import RedBlackBinaryTreeNode
 
 
 class RedBlackTree:
@@ -40,7 +40,7 @@ class RedBlackTree:
         return node
 
     def _insert_node(self, root: RedBlackBinaryTreeNode, node: RedBlackBinaryTreeNode):
-        if root.value > node.value:
+        if root.val > node.val:
             if root.left is not None:
                 # Go left
                 self._insert_node(root.left, node)

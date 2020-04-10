@@ -1,6 +1,6 @@
 from unittest import TestCase
 
-from pyzuiz.leetcode.DivisorGame import DivisorGame
+from pyquiz.leetcode.DivisorGame import DivisorGame
 
 
 class TestDivisorGame(TestCase):

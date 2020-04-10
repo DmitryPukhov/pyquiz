@@ -1,6 +1,6 @@
 from unittest import TestCase
 
-from pyzuiz.leetcode.SelfDividingNumbers import SelfDividingNumbers
+from pyquiz.leetcode.SelfDividingNumbers import SelfDividingNumbers
 
 
 class TestSelfDividingNumbers(TestCase):

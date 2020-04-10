@@ -1,6 +1,6 @@
 from unittest import TestCase
 
-from pyzuiz.leetcode.AddBinary import AddBinary
+from pyquiz.leetcode.AddBinary import AddBinary
 
 
 class TestAddBinary(TestCase):

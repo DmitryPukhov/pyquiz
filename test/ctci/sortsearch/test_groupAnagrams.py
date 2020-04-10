@@ -1,6 +1,6 @@
 from unittest import TestCase
 
-from pyzuiz.ctci.sortsearch.GroupAnagrams import GroupAnagrams
+from pyquiz.ctci.sortsearch.GroupAnagrams import GroupAnagrams
 
 
 class TestGroupAnagrams(TestCase):

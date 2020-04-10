@@ -1,6 +1,6 @@
 import math
 
-from pyzuiz.common.BinaryTreeNode import BinaryTreeNode
+from pyquiz.common.BinaryTreeNode import BinaryTreeNode
 
 
 class MinimalTree:
