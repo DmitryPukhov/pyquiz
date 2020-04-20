@@ -17,20 +17,20 @@ class SingleNumber:
     """
 
     def solve(self, nums: List[int]) -> int:
-        resmask = 0
-        even_found = False
-        for bn in range(0, 32):
-            mask = 1 << bn
-            bc = 0
-            for x in nums:
-                if x & mask == mask:
-                    bc += 1
-            if bc % 2 == 1:
-                resmask |= mask
-                even_found = True
-
-        if not even_found:
-            return 0
-        for x in nums:
-            if x & resmask == resmask:
-                return x
+        """
+        Check each bit
+        mask    b1  mask after b1   b2  mask after b2
+        1       1   0               1   1
+        1       0   1               0   1
+        If mask changed, this bit is even and is present in result number
+        """
+        mask = 1
+        res = 0
+        for i in range(0, 64):
+            resmask = mask
+            for n in nums:
+                  resmask = resmask ^ (mask & n)
+            if resmask ^ mask:
+                res |= mask
+            mask <<= 1
+        return res
