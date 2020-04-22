@@ -2,7 +2,6 @@ from unittest import TestCase
 
 from pyquiz.leetcode.SingleNumber import SingleNumber
 
-
 class TestSingleNumber(TestCase):
     alg = SingleNumber()
 
