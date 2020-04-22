@@ -1,8 +1,8 @@
 from enum import Enum
-from pyquiz.common.BinaryTreeNode import BinaryTreeNode
+from pyquiz.common.TreeNode import TreeNode
 
 
-class RedBlackBinaryTreeNode(BinaryTreeNode):
+class RedBlackTreeNode(TreeNode):
     class Color(Enum):
         BLACK = 0
         RED = 1
@@ -10,4 +10,4 @@ class RedBlackBinaryTreeNode(BinaryTreeNode):
     def __init__(self, val, parent=None, left=None, right=None):
         super().__init__(val, parent, left, right)
         # New node is red
-        self.color: RedBlackBinaryTreeNode.Color = RedBlackBinaryTreeNode.Color.RED
+        self.color: RedBlackTreeNode.Color = RedBlackTreeNode.Color.RED

@@ -1,7 +1,7 @@
 from unittest import TestCase
 
 from pyquiz.algo.tree.RedBlackTree import RedBlackTree
-from pyquiz.common.RedBlackBinaryTreeNode import RedBlackBinaryTreeNode
+from pyquiz.common.RedBlackBinaryTreeNode import RedBlackTreeNode
 
 
 class TestRedBlackTree(TestCase):
@@ -23,10 +23,10 @@ class TestRedBlackTree(TestCase):
         #  1   5
         #   \
         #    +2
-        node3 = RedBlackBinaryTreeNode(3)
-        node1 = RedBlackBinaryTreeNode(1, node3)
+        node3 = RedBlackTreeNode(3)
+        node1 = RedBlackTreeNode(1, node3)
         node3.left = node1
-        node5 = RedBlackBinaryTreeNode(5)
+        node5 = RedBlackTreeNode(5)
         node3.right = node5
 
         tree = RedBlackTree(node3)
@@ -43,10 +43,10 @@ class TestRedBlackTree(TestCase):
         #  1   5
         #     /
         #    +4
-        node3 = RedBlackBinaryTreeNode(3)
-        node1 = RedBlackBinaryTreeNode(1, node3)
+        node3 = RedBlackTreeNode(3)
+        node1 = RedBlackTreeNode(1, node3)
         node3.left = node1
-        node5 = RedBlackBinaryTreeNode(5)
+        node5 = RedBlackTreeNode(5)
         node3.right = node5
 
         tree = RedBlackTree(node3)

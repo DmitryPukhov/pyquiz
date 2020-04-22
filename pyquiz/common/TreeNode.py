@@ -1,4 +1,4 @@
-class BinaryTreeNode:
+class TreeNode:
     """
     Binary tree node with left and right child
     """

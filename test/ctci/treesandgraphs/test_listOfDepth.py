@@ -1,25 +1,25 @@
 from unittest import TestCase
 
-from pyquiz.common.BinaryTreeNode import BinaryTreeNode
+from pyquiz.common.TreeNode import TreeNode
 from pyquiz.ctci.treesandgraphs.ListOfDepth import ListOfDepth
 
 
 class TestListOfDepth(TestCase):
     def test_of(self):
-        tree = BinaryTreeNode(1,
-                              None,
-                              # Left level1
-                              BinaryTreeNode(2,
-                                             None,
-                                             # Level2
-                                             BinaryTreeNode(4, None, None, None),
-                                             BinaryTreeNode(5, None, None, None)),
-                              # Right level1
-                              BinaryTreeNode(3,
-                                             None,
-                                             # Level2
-                                             BinaryTreeNode(6, None, None, None),
-                                             BinaryTreeNode(7, None, None, None)))
+        tree = TreeNode(1,
+                        None,
+                        # Left level1
+                        TreeNode(2,
+                                 None,
+                                 # Level2
+                                 TreeNode(4, None, None, None),
+                                 TreeNode(5, None, None, None)),
+                        # Right level1
+                        TreeNode(3,
+                                 None,
+                                 # Level2
+                                 TreeNode(6, None, None, None),
+                                 TreeNode(7, None, None, None)))
 
         # Get linked lists of depths according to quiz requirements
         res = ListOfDepth().of(tree)

@@ -1,5 +1,5 @@
 from pyquiz.common.ListNode import ListNode
-from pyquiz.common.BinaryTreeNode import BinaryTreeNode
+from pyquiz.common.TreeNode import TreeNode
 
 
 class ListOfDepth:
@@ -14,7 +14,7 @@ class ListOfDepth:
         self._heads = {}
         self._tails = {}
 
-    def of(self, root: BinaryTreeNode):
+    def of(self, root: TreeNode):
         # Recursive traverse through the tree and form hash map of levels
         self._traverse(root, 0)
 
@@ -25,7 +25,7 @@ class ListOfDepth:
 
         return lists
 
-    def _traverse(self, node: BinaryTreeNode, level):
+    def _traverse(self, node: TreeNode, level):
         """
         Traverse node's children adding them to hash map by level
         """

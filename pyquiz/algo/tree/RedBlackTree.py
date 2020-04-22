@@ -1,6 +1,6 @@
 from typing import Optional
 
-from pyquiz.common.RedBlackBinaryTreeNode import RedBlackBinaryTreeNode
+from pyquiz.common.RedBlackBinaryTreeNode import RedBlackTreeNode
 
 
 class RedBlackTree:
@@ -17,29 +17,29 @@ class RedBlackTree:
     Every path from a given node to any of its descendant NIL nodes contains the same number of black nodes.
     """
 
-    def __init__(self, root: RedBlackBinaryTreeNode):
+    def __init__(self, root: RedBlackTreeNode):
         self.root = root
 
     def insert(self, value):
         """
         Insert a value, then recolor or rebalance the tree
         """
-        node = RedBlackBinaryTreeNode(value)
+        node = RedBlackTreeNode(value)
         # Standard BST insertion
         if self.root is None:
             # Insert the root to empty tree
             self.root = node
-            self.root.color = RedBlackBinaryTreeNode.Color.BLACK
+            self.root.color = RedBlackTreeNode.Color.BLACK
         else:
             # Normal insertion
-            node = self._insert_node(self.root, RedBlackBinaryTreeNode(value))
-            node.color = RedBlackBinaryTreeNode.Color.RED
+            node = self._insert_node(self.root, RedBlackTreeNode(value))
+            node.color = RedBlackTreeNode.Color.RED
 
         # Do rebalancing
         self._rebalance(node)
         return node
 
-    def _insert_node(self, root: RedBlackBinaryTreeNode, node: RedBlackBinaryTreeNode):
+    def _insert_node(self, root: RedBlackTreeNode, node: RedBlackTreeNode):
         if root.val > node.val:
             if root.left is not None:
                 # Go left
@@ -58,7 +58,7 @@ class RedBlackTree:
                 node.parent = root
         return node
 
-    def _rebalance(self, node: RedBlackBinaryTreeNode):
+    def _rebalance(self, node: RedBlackTreeNode):
         """
         3) Do following if color of x’s parent is not BLACK and x is not root.
         a) If x’s uncle is RED (Grand parent must have been black from property 4)
@@ -76,10 +76,10 @@ class RedBlackTree:
         Following are operations to be performed in four subcases when uncle is BLACK.
         """
         if node == self.root:
-            node.color = RedBlackBinaryTreeNode.Color.BLACK
+            node.color = RedBlackTreeNode.Color.BLACK
             return
 
-        if node == self.root or node.parent.color == RedBlackBinaryTreeNode.Color.BLACK or node is None or node.parent.parent is None:
+        if node == self.root or node.parent.color == RedBlackTreeNode.Color.BLACK or node is None or node.parent.parent is None:
             # Our new node is red, parent is black - nothing to rebalance
             return
 
@@ -88,10 +88,10 @@ class RedBlackTree:
         if uncle is None:
             return
 
-        if uncle.color == RedBlackBinaryTreeNode.Color.RED:
+        if uncle.color == RedBlackTreeNode.Color.RED:
             # If uncle is red (grand parent and nephews must be black)
-            node.parent.color = uncle.color = RedBlackBinaryTreeNode.Color.BLACK
-            node.parent.parent.color = RedBlackBinaryTreeNode.Color.RED
+            node.parent.color = uncle.color = RedBlackTreeNode.Color.BLACK
+            node.parent.parent.color = RedBlackTreeNode.Color.RED
             self._rebalance(node.parent.parent)
         # If uncle is black, for cases
         elif node.parent.left == node and node.parent.parent.left == node.parent:
@@ -196,9 +196,9 @@ class RedBlackTree:
         (g.color, x.color) = (x.color, g.color)
 
     @staticmethod
-    def _get_uncle(node: RedBlackBinaryTreeNode):
+    def _get_uncle(node: RedBlackTreeNode):
         if node.parent is None or node.parent.parent is None:
             return None
-        grandparent: RedBlackBinaryTreeNode = node.parent.parent
-        uncle: RedBlackBinaryTreeNode = grandparent.left if grandparent.right == node.parent else grandparent.right
+        grandparent: RedBlackTreeNode = node.parent.parent
+        uncle: RedBlackTreeNode = grandparent.left if grandparent.right == node.parent else grandparent.right
         return uncle
