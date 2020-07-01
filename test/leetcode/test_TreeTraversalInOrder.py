@@ -14,8 +14,9 @@ class TestTreeTraversalInOrder(TestCase):
                                  ),
                         # Right
                         TreeNode(3))
-        actual = TreeTraversalInOrder.traverse(tree)
-        self.assertListEqual([0.5, 1, 1.5, 2, 3], actual)
+        original = [0.5, 1, 1.5, 2, 3]
+        self.assertListEqual(original, TreeTraversalInOrder.traverse_iterative(tree))
+        self.assertListEqual(original, TreeTraversalInOrder().traverse_recursive(tree))
 
     def test_traverse__single_branch_tree(self):
         # 0.5, 1, 1.5, 2,3
@@ -26,15 +27,17 @@ class TestTreeTraversalInOrder(TestCase):
                                  ),
                         # Right
                         None)
-        actual = TreeTraversalInOrder.traverse(tree)
-        self.assertListEqual([0.5, 1, 1.5, 2], actual)
+        original = [0.5, 1, 1.5, 2]
+        self.assertListEqual(original, TreeTraversalInOrder.traverse_iterative(tree))
+        self.assertListEqual(original, TreeTraversalInOrder().traverse_recursive(tree))
 
     def test_traverse__empty_tree(self):
         tree = None
-        actual = TreeTraversalInOrder.traverse(tree)
-        self.assertListEqual([], actual)
+        original = []
+        self.assertListEqual(original, TreeTraversalInOrder.traverse_iterative(tree))
 
     def test_traverse__single_node_tree(self):
         tree = TreeNode(1)
-        actual = TreeTraversalInOrder.traverse(tree)
-        self.assertListEqual([1], actual)
+        original = [1]
+        self.assertListEqual(original, TreeTraversalInOrder.traverse_iterative(tree))
+        self.assertListEqual(original, TreeTraversalInOrder().traverse_recursive(tree))
