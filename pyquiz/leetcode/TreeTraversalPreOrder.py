@@ -1,24 +1,25 @@
 from pyquiz.common.TreeNode import TreeNode
 
 
-class TreeTraversalInOrder:
+class TreeTraversalPreOrder:
     @staticmethod
     def traverse_iterative(root: TreeNode) -> []:
         """
-        Iterative tree traversal in order
+        Iterative tree traversal pre order
         """
         out, stack = [], []
         node = root
         while True:
             # Go left
             while node:
+                # Out node and go left
+                out.append(node.val)
                 stack.append(node)
                 node = node.left
             if not stack:
                 break
-            # Get the node from stack, out it and go right
+            # Get the node from stack and go right
             node = stack.pop()
-            out.append(node.val)
             node = node.right
         return out
 
@@ -29,7 +30,7 @@ class TreeTraversalInOrder:
         out = []
         if root:
             # Go in order: left, current, right
-            out += self.traverse_recursive(root.left)
             out.append(root.val)
+            out += self.traverse_recursive(root.left)
             out += self.traverse_recursive(root.right)
         return out
