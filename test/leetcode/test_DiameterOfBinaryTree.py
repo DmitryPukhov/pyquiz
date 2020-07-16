@@ -16,7 +16,8 @@ class TestDiameterOfBinaryTree(TestCase):
 
     def test_diameter_of_binary_tree_1(self):
         root = TreeNode(1)
-        self.assertEqual(0, DiameterOfBinaryTree().diameterOfBinaryTree(root))
+        d = DiameterOfBinaryTree().diameterOfBinaryTree(root)
+        self.assertEqual(0, d)
 
     def test_diameter_of_binary_tree_12(self):
         root = TreeNode(1, TreeNode(2))

@@ -7,19 +7,16 @@ from pyquiz.ctci.treesandgraphs.ListOfDepth import ListOfDepth
 class TestListOfDepth(TestCase):
     def test_of(self):
         tree = TreeNode(1,
-                        None,
                         # Left level1
                         TreeNode(2,
-                                 None,
                                  # Level2
-                                 TreeNode(4, None, None, None),
-                                 TreeNode(5, None, None, None)),
+                                 TreeNode(4, None, None),
+                                 TreeNode(5, None, None)),
                         # Right level1
                         TreeNode(3,
-                                 None,
                                  # Level2
-                                 TreeNode(6, None, None, None),
-                                 TreeNode(7, None, None, None)))
+                                 TreeNode(6, None, None),
+                                 TreeNode(7, None, None)))
 
         # Get linked lists of depths according to quiz requirements
         res = ListOfDepth().of(tree)

@@ -8,6 +8,7 @@ class RedBlackTreeNode(TreeNode):
         RED = 1
 
     def __init__(self, val, parent=None, left=None, right=None):
-        super().__init__(val, parent, left, right)
+        self.parent = parent
+        super().__init__(val, left, right)
         # New node is red
         self.color: RedBlackTreeNode.Color = RedBlackTreeNode.Color.RED

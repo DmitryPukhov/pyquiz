@@ -16,7 +16,7 @@ class MinimalTree:
     def create_bst_part(self, items: [], start, end):
         # Parent node will be a median of items
         im = math.floor(start + (end - start) / 2)
-        node = TreeNode(items[im], None, None, None)
+        node = TreeNode(items[im], None, None)
         # Recursive call to fill left/right children of BST
         if im > start:
             node.left = self.create_bst_part(items, start, im)

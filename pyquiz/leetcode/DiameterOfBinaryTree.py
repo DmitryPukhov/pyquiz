@@ -5,8 +5,8 @@ class DiameterOfBinaryTree:
     d = 0
     def diameterOfBinaryTree(self, root: TreeNode) -> int:
         self.d = 0
-        t = max(self.traverse(root))
-        max(self.d, t)
+        t = self.traverse(root)
+        return max(self.d, t)
 
     def traverse(self, node: TreeNode) -> int:
         if not node: return 0
