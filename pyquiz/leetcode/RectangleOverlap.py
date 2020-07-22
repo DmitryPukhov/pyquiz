@@ -19,11 +19,9 @@ class RectangleOverlap:
     """
 
     def isRectangleOverlap(self, rec1: List[int], rec2: List[int]) -> bool:
-        # Negative area
         if rec1[2] < rec1[0] or rec1[3] < rec1[1] or rec2[2] < rec2[0] or rec2[3] < rec2[1]:
             return False
-        # not out
-        return not (rec1[2] <= rec2[0] or  # left out
-                    rec1[3] <= rec2[1] or  # bottom  out
-                    rec1[0] >= rec2[2] or  # right out
-                    rec1[1] >= rec2[3])  # top out
+        return not (rec1[2] <= rec2[0] or  # left
+                    rec1[3] <= rec2[1] or  # bottom
+                    rec1[0] >= rec2[2] or  # right
+                    rec1[1] >= rec2[3])  # top
