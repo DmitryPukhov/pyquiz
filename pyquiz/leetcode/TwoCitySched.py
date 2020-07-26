@@ -26,7 +26,7 @@ class TwoCitySched:
 
     def twoCitySchedCost(self, costs: List[List[int]]) -> int:
 
-        # Sort by delta price
+        # Sort by delta pricer
         sorted_costs = sorted(costs, key=lambda person: person[1] - person[0], reverse=True)
         res = 0
         halfn = len(costs) // 2
