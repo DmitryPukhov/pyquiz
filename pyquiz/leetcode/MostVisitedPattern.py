@@ -1,3 +1,4 @@
+import itertools
 from collections import defaultdict
 from itertools import groupby
 from typing import List
@@ -56,9 +57,8 @@ class MostVisitedPattern:
         for user in uservisits:
             # Get all combinations of 3 websites for user
             userwebsites = uservisits[user]
-            for i1 in range(0, len(userwebsites)):
-                for i2 in range(i1 + 1, len(userwebsites)):
-                    for i3 in range(i2 + 1, len(userwebsites)):
-                        ws3users[(userwebsites[i1], userwebsites[i2], userwebsites[i3])].add(user)
+            combs3 = set(itertools.combinations(userwebsites, 3))
+            for comb in combs3:
+                ws3users[comb].add(user)
         maxseq = max(sorted(ws3users.keys()), key=lambda seq: len(list(ws3users[seq]))) if ws3users else []
         return list(maxseq)
