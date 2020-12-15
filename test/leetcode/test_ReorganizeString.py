@@ -22,7 +22,7 @@ class TestReorganizeString(TestCase):
         self.assertEqual("", ReorganizeString().reorganizeString("aaab"))
 
     def test_reorganize_string__aabbcc(self):
-        self.assertEqual("bacacb", ReorganizeString().reorganizeString("aabbcc"))
+        self.assertEqual("bcacab", ReorganizeString().reorganizeString("aabbcc"))
 
     def test_reorganize_string__abb(self):
         self.assertEqual("bab", ReorganizeString().reorganizeString("abb"))

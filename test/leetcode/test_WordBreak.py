@@ -54,11 +54,6 @@ class TestWordBreak(TestCase):
     def test_word_break__abc(self):
         self.assertTrue(WordBreak().wordBreak("abc", ["a", "b", "bc"]))
 
-    def test_word_break__longa(self):
-        self.assertTrue(WordBreak().wordBreak(
-            "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaab",
-            ["a", "aa", "aaa", "aaaa", "aaaaa", "aaaaaa", "aaaaaaa", "aaaaaaaa", "aaaaaaaaa", "aaaaaaaaaa"]))
-
     def test_word_break__a(self):
         self.assertTrue(WordBreak().wordBreak(
             "a",

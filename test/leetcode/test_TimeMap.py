@@ -47,9 +47,9 @@ class TestTimeMap(TestCase):
 
     def test_empty(self):
         kv = TimeMap()
-        self.assertEqual(None, kv.get("key1", 5))
+        self.assertEqual("", kv.get("key1", 5))
 
     def test_empty_key(self):
         kv = TimeMap()
         kv.set("key1", "val1", 20)
-        self.assertEqual(None, kv.get("key2", 5))
+        self.assertEqual("", kv.get("key2", 5))

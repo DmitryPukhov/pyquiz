@@ -7,7 +7,7 @@ from pyquiz.leetcode.PalindromeLinkedList import PalindromeLinkedList
 class TestPalindromeLinkedList(TestCase):
     def test_is_palindrome_single(self):
         res = PalindromeLinkedList().isPalindrome(ListNode(1))
-        self.assertFalse(res)
+        self.assertTrue(res)
 
     def test_is_palindrome(self):
         res = PalindromeLinkedList().isPalindrome(ListNode(1, ListNode(2)))
