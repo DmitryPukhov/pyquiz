@@ -37,7 +37,7 @@ class ListNode:
             values.append(str(node.val))
             node = node.next
 
-        if items >= max_items:
+        if items > max_items:
             values.append('...')
 
         return ','.join(values)
