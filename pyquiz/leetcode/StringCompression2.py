@@ -41,56 +41,23 @@ class Solution:
 
         @lru_cache(None)
         def f(i, seq_ch, seq_len, k_left):
-            if k_left == 0 or i >= len(s):
+            if i >= len(s):
                 return 0
 
-            keep_cost = float('inf')
+            # aabbaa
+            # a2b2a2
             del_cost = float('inf')
+            if k_left > 0:
+                del_cost = f(i + 1, seq_ch, seq_len, k_left - 1)
+
             if s[i] == seq_ch:
-                keep_cost = f(i + 1, seq_ch, seq_len + 1, k_left)
-                del_cost = 1+f(i + 1, seq_ch, seq_len+1, k_left - 1)
+                # Continue current seq
+                extra_digit_cost = 1 if seq_len == 1 or len(str(seq_len+1)) > len(str(seq_len)) else 0
+                keep_cost = extra_digit_cost + f(i + 1, seq_ch, seq_len + 1, k_left)
             else:
-                keep_cost = f(i + 1, s[i], 1, k_left)
-                del_cost = 1 + f(i + 1, s[i], 1, k_left - 1)
-            return min(keep_cost, del_cost)
+                # Start another seq
+                keep_cost = 1 + f(i + 1, s[i], 1, k_left)
+            final_cost = min(keep_cost, del_cost)
+            return final_cost
 
         return f(0, '', 0, k)
-
-
-    def getLengthOfOptimalCompression_bad(self, s: str, k: int) -> int:
-        # Create sorted counts dictionary
-        cnts = []
-        cnt = 0
-        prevc = s[0]
-        for c in s:
-            if prevc == c:
-                cnt += 1
-            else:
-                cnts.append(cnt)
-                cnt = 1
-            prevc = c
-        cnts.append(cnt)
-        cnts = sorted(cnts, key=lambda n: n % 10)
-
-        # Greedy remove characters
-        # cntsnew = []
-        while k > 0:
-            for i, cnt in enumerate(cnts):
-                delta = max(0, (cnt % 10 + 1) if cnt > 10 else cnt)
-                k -= delta
-                if k < 0:
-                    break
-                cnt -= delta
-                if cnt >= 0:
-                    cnts[i] = cnt
-            cnts = sorted(cnts, key=lambda n: n % 10)
-
-        # Calculate length
-        out = 0
-        for cnt in cnts:
-            if cnt >= 1:
-                out += 1 + len(str(cnt))
-            elif cnt == 1:
-                out += 1
-
-        return out

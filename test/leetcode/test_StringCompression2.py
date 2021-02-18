@@ -37,3 +37,30 @@ class TestSolution(TestCase):
         """
         out = Solution().getLengthOfOptimalCompression(s="aaaaaaaaaaa", k=0)
         self.assertEqual(3, out)
+
+    def test_get_length_of_optimal_compression_a2_2(self):
+        out = Solution().getLengthOfOptimalCompression(s="aa", k=2)
+        self.assertEqual(0, out)
+
+    def test_get_length_of_optimal_compression_a2_1(self):
+        out = Solution().getLengthOfOptimalCompression(s="aa", k=1)
+        self.assertEqual(1, out)
+
+    def test_get_length_of_optimal_compression_a_0(self):
+        out = Solution().getLengthOfOptimalCompression(s="a", k=0)
+        self.assertEqual(1, out)
+
+    def test_get_length_of_optimal_compression_a2b2a2_2(self):
+        # aabbaa -> aaaa -> a4, len = 2
+        out = Solution().getLengthOfOptimalCompression(s="aabbaa", k=2)
+        self.assertEqual(2, out)
+
+    def test_get_length_of_optimal_compression_aba(self):
+        # aabbaa -> aaaa -> a4, len = 2
+        out = Solution().getLengthOfOptimalCompression(s="aba", k=1)
+        self.assertEqual(2, out)
+
+    def test_get_length_of_optimal_compression_aa(self):
+        # aabbaa -> aaaa -> a4, len = 2
+        out = Solution().getLengthOfOptimalCompression(s="aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa", k=0)
+        self.assertEqual(4, out)
