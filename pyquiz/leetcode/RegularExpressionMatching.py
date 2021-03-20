@@ -1,3 +1,6 @@
+from functools import lru_cache
+
+
 class Solution:
     """
     Given an input string (s) and a pattern (p), implement regular expression matching with support for '.' and '*' where:
@@ -36,12 +39,13 @@ class Solution:
     p contains only lowercase English letters, '.', and '*'.
     It is guaranteed for each appearance of the character '*', there will be a previous valid character to match.
     """
-
+    @lru_cache(None)
     def isMatch(self, s: str, p: str) -> bool:
         if not p:
             return not s
         if not s:
-            if len(p) >= 2 and p[:2] == '.*':
+            if len(p) >= 2 and p[1] == '*':
+                # If *, we can move p anyway
                 return self.isMatch(s, p[2:])
             else:
                 return False
@@ -50,8 +54,19 @@ class Solution:
         is_keeny_match = len(p) >= 2 and p[1] == '*'
         if is_keeny_match:
             # If wildcard in pattern
-            # Move s or pattern to the left and match again
-            return self.isMatch(s, p[2:]) or self.isMatch(s[1:], p) or self.isMatch(s[1:], p[2:])
+            # Move s or pattern to the left and match again a .*
+            # is_move_s_match = self.isMatch(s[1:],p) and is_first_match
+            # is_move_p_match = self.isMatch(s,p[2:])
+            # is_move_both_match = self.isMatch(s[1:],p[2:]) and is_first_match
+            # return is_move_s_match or is_move_p_match or is_move_both_match
+
+            # If first matches, we can move s or p or both.
+            # If first does not match, we can move p only
+            return is_first_match \
+                   and (self.isMatch(s[1:], p) \
+                        or self.isMatch(s[1:], p[2:])) \
+                   or self.isMatch(s, p[2:])
+
         else:
             # No wildcard in pattern,
             return is_first_match and self.isMatch(s[1:], p[1:])

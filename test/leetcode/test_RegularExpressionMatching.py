@@ -45,7 +45,7 @@ class TestSolution(TestCase):
         Input: s = "mississippi", p = "mis*is*p*."
         Output: false
         """
-        self.assertTrue(Solution().isMatch("mississippi", p="mis*is*p*."))
+        self.assertFalse(Solution().isMatch("mississippi", p="mis*is*p*."))
 
     def test_is_match__ab_dotmany(self):
         self.assertTrue(Solution().isMatch("ab", p=".*"))
@@ -63,17 +63,15 @@ class TestSolution(TestCase):
         self.assertTrue(Solution().isMatch("a", p=".*.*"))
 
     def test_is_match__ab_amanydot(self):
-        """
-        Example 5:
-        Input: s = "mississippi", p = "mis*is*p*."
-        Output: false
-        """
         self.assertTrue(Solution().isMatch("a", p=".*."))
 
-    def test_is_match__ab_amanydot2(self):
+    def test_is_match__abc_amanydot(self):
         """
         Example 5:
         Input: s = "mississippi", p = "mis*is*p*."
         Output: false
         """
-        self.assertTrue(Solution().isMatch("abc", p=".*."))
+        self.assertFalse(Solution().isMatch("abc", p="a*."))
+
+    def test_is_match_a_abmany(self):
+        self.assertTrue(Solution().isMatch("a", p="ab*"))
