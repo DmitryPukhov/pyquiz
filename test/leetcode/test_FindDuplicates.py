@@ -13,7 +13,7 @@ class TestFindDuplicates(TestCase):
         Output:
         [2,3]
         """
-        self.assertEqual([2, 3], FindDuplicates().findDuplicates([4, 3, 2, 7, 8, 2, 3, 1]))
+        self.assertEqual(set([2, 3]), set(FindDuplicates().findDuplicates([4, 3, 2, 7, 8, 2, 3, 1])))
 
     def test_find_duplicates__1(self):
         self.assertEqual([], FindDuplicates().findDuplicates([1]))
