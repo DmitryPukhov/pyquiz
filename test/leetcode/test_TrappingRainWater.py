@@ -25,7 +25,7 @@ class TestSolution(TestCase):
         """
         1011
         """
-        self.assertEqual(1, Solution().trap(height=[1, 0, 1,1]))
+        self.assertEqual(1, Solution().trap(height=[1, 0, 1, 1]))
 
     def test_trap__singlehole101(self):
         """
@@ -60,6 +60,14 @@ class TestSolution(TestCase):
         """
         self.assertEqual(4, Solution().trap(height=[2, 1, 0, 1, 2]))
 
+    def test_trap__big_and_small_hole_10202(self):
+        """
+        00101
+        10101
+        11111
+        """
+        self.assertEqual(3, Solution().trap(height=[1, 0, 2, 0, 2]))
+
     def test_trap__thole1021012(self):
         """
         0010001
@@ -72,35 +80,35 @@ class TestSolution(TestCase):
         1 1
         1111
         """
-        self.assertEqual(1, Solution().trap(height=[2, 1, 2,1]))
+        self.assertEqual(1, Solution().trap(height=[2, 1, 2, 1]))
 
     def test_trap__12121(self):
         """
          1 1
         11111
         """
-        self.assertEqual(1, Solution().trap(height=[1,2, 1, 2,1]))
+        self.assertEqual(1, Solution().trap(height=[1, 2, 1, 2, 1]))
 
     def test_trap__example1test(self):
         """
         1 1
         11111
         """
-        #self.assertEqual(1, Solution().trap(height=[3,2,1,2,1]))
-        #self.assertEqual(1, Solution().trap(height=[3,1,2,1]))
-        self.assertEqual(1, Solution().trap(height=[2,0,1,0]))
+        # self.assertEqual(1, Solution().trap(height=[3,2,1,2,1]))
+        # self.assertEqual(1, Solution().trap(height=[3,1,2,1]))
+        self.assertEqual(1, Solution().trap(height=[2, 0, 1, 0]))
 
     def test_trap_1(self):
         self.assertEqual(0, Solution().trap(height=[1]))
 
     def test_trap_11(self):
-        self.assertEqual(0, Solution().trap(height=[1,1]))
+        self.assertEqual(0, Solution().trap(height=[1, 1]))
 
     def test_trap_111(self):
-        self.assertEqual(0, Solution().trap(height=[1,1,1]))
+        self.assertEqual(0, Solution().trap(height=[1, 1, 1]))
 
     def test_trap_121(self):
-        self.assertEqual(0, Solution().trap(height=[1,2,1]))
+        self.assertEqual(0, Solution().trap(height=[1, 2, 1]))
 
     def test_trap_empty(self):
         self.assertEqual(0, Solution().trap(height=[]))
