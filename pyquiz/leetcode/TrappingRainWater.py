@@ -23,23 +23,52 @@ class Solution:
     """
 
     def trap(self, height: List[int]) -> int:
-        return self.trap_stack(height)
+        return self.trap_2pointers(height)
 
-    def trap_stack(self,  height: List[int]) -> int:
+    def trap_2pointers(self, height: List[int]) -> int:
+        if not height:
+            return 0
+        rightbound = right = len(height) - 1
+        leftbound = left = 0
+
+        out = 0
+        while left < right:
+            if height[left] < height[right]:
+                # Move left bound or get water
+                if height[left] >= height[leftbound]:
+                    # Move right bound
+                    leftbound = left
+                else:
+                    # collect water
+                    out += height[leftbound] - height[left]
+                left += 1
+            else:
+                # Move right bound or get water
+                if height[right] >= height[rightbound]:
+                    # Move left bound
+                    rightbound = right
+                else:
+                    # collect water
+                    out +=height[rightbound] - height[right]
+                right -= 1
+
+        return out
+
+    def trap_stack(self, height: List[int]) -> int:
         """
         Stack approach: store left bound in a stack
         """
         if not height:
             return 0
-        stack=[]
+        stack = []
         out = 0
-        for i,h in enumerate(height):
+        for i, h in enumerate(height):
             while stack and height[stack[-1]] <= h:
                 ibottom = stack.pop()
                 if not stack:
                     break
                 dist = i - stack[-1] - 1
-                volume = (min(height[stack[-1]], h)- height[ibottom]) * dist
+                volume = (min(height[stack[-1]], h) - height[ibottom]) * dist
                 out += volume
             stack.append(i)
         return out
